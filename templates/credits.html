@@ -1,0 +1,92 @@
+{% include 'top.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credits</title>
+    <link rel="stylesheet" href="/static/css/styles.css"> <!-- Include your CSS -->
+    <style>
+        /* Additional page-specific styles */
+        h2 {
+            color: goldenrod;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        h6 {
+            color: goldenrod;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+            color: #dddddd;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            background-color: #542e0011;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            border: 2px solid goldenrod;
+        }
+
+        img {
+            margin: 20px 0;
+        }
+
+        .summary {
+            margin-top: 30px;
+            font-size: 1.3rem;
+            background-color: #ffffff11;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid goldenrod;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 14px;
+            color: #eee;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mx-auto flex-col items-center text-center">
+    <a href="https://ieee.vit.edu.in" target="_blank">
+        <img src="/static/images/ieeevit24.jpeg" height="80" alt="Logo">
+    </a>
+    {%if questions_solved < 8 %}
+        <h2>Oops :( time's up!</h2>
+    {%else%}
+        <h2>Congratulations!</h2>
+        <p>You have successfully completed the challenge.</p>
+    {%endif%}
+    <p>Thank you for your participation!</p>
+    <p><strong>Total Questions Solved:</strong> {{ questions_solved }}</p>
+
+    <h3 class="text-center">Time Summary</h3>
+    <ul class="w-[50%] mx-auto">
+        {% for time in time_spent %}
+            <li>Question {{ loop.index }}: {{ time | round(2) }} seconds</li>
+        {% endfor %}
+    </ul>
+
+    <p class="summary"><strong>Last question solved correctly at:</strong> {{ last_correct_time }}</p>
+
+    <div class="footer">
+        <h6>For more exciting events like this one, visit <a href="https://ieee.vit.edu.in" target="_blank">our website</a>.</h6>
+    </div>
+</div>
+
+</body>
+</html>

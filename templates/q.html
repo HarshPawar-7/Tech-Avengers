@@ -1,0 +1,67 @@
+{% include 'top.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Question {{ episode }}</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <script>
+        let timer;
+        let startTime;
+        let questionStartTime; // To track when the current question was started
+        let timeSpentOnQuestions = []; // To store time spent on each question
+        const totalDuration = 105 * 60; // Total duration in seconds (120 minutes)
+
+        function startCountdown() {
+            timer = setInterval(() => {
+                const now = Date.now();
+                const storedStartTime = sessionStorage.getItem('quizStartTime');
+                const elapsed = Math.floor((now - storedStartTime) / 1000);
+                const remainingTime = totalDuration - elapsed;
+
+                if (remainingTime <= 0) {
+                    clearInterval(timer);
+                    window.location.href = "/credits/";  // Redirect to credits when time is up
+                } else {
+                    document.getElementById('timer').innerText = `Time remaining: ${Math.ceil(remainingTime / 60)} minutes`;
+                }
+            }, 1000);
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            let storedStartTime = sessionStorage.getItem('quizStartTime');
+            if (!storedStartTime) {
+                sessionStorage.setItem('quizStartTime', Date.now()); // Store start time if not already set
+                storedStartTime = sessionStorage.getItem('quizStartTime');
+            }
+            questionStartTime = Date.now(); // Start tracking when the question is displayed
+            startCountdown();  // Start countdown based on elapsed time
+        });
+
+        function recordTimeSpent(q_no) {
+            const timeSpent = Math.floor((Date.now() - questionStartTime) / 1000); // Calculate time spent in seconds
+            timeSpentOnQuestions[q_no - 1] = timeSpent; // Store it in the array
+            sessionStorage.setItem("timeSpent", JSON.stringify(timeSpentOnQuestions)); // Store in sessionStorage
+        }
+
+        // Call this function when the user submits an answer
+        document.getElementById('answer_form').onsubmit = function() {
+            recordTimeSpent({ episode }); // Record time spent for the current question
+        };
+    </script>
+
+</head>
+<body>
+    <h1>Question {{ episode }}</h1>
+    <div id="timer" class="text-center"></div>  <!-- Timer Display -->
+
+    <form id="answer_form" action="/chapter/{{form_link}}/submit" method="post" class="text-center flex flex-col mx-auto my-0 w-[50%]">
+        <img src="{{image}}" width="256" height="256" class="mx-auto my-0">
+        <div>{{question | safe }}</div>
+        <a href="/input/{{ episode }}.txt" target="_blank" class="inputdownload">Download Input File</a>
+        <input type="text" class="border-2 rounded-md" id="answer" name="answer" placeholder="Enter your answer" required><br>
+        <input type="hidden" name="question_id" value="{{ question_id }}">
+        <input type="submit" value="Submit" class="submit-btn">
+    </form>
+</body>
+</html>

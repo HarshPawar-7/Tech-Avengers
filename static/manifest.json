@@ -1,0 +1,37 @@
+{
+    "name": "Codeager",
+    "short_name": "Codeager",
+    "version": "2",
+    "description": "A journey through coding inspried by iconic tales of fiction.",
+    "lang": "en-GB",
+    "start_url": ".",
+    "id" : "./",
+    "scope": "./",
+    "theme_color": "#220B41",
+    "background_color": "#220B41",
+    "display_override": ["fullscreen", "minimal-ui"],
+    "display": "standalone",
+    "icons": [
+        {
+          "src": "./images/favicon.png",
+          "sizes": "457x457",
+          "purpose": "any"
+        }
+      ],
+    "screenshots": [
+        {
+         "src": "./images/ss1.png",
+          "sizes": "1883x944",
+          "type": "image/png",
+          "form_factor": "wide",
+          "label": "Screenshot"
+        },
+        {
+          "src": "./images/ss2.png",
+           "sizes": "1883x944",
+           "type": "image/png",
+           "form_factor": "wide",
+           "label": "Screenshot"
+         }
+    ]
+}
