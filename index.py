@@ -7,7 +7,7 @@ from pytz import timezone
 from datetime import datetime
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Replace with a secure random key
+app.secret_key = 'Lub_U'  # Replace with a secure random key
 
 # Define answers and quotes
 answers = [
@@ -18,7 +18,7 @@ answers = [
     "23312",
     "-210",
     "383", 
-    "Veritas Scissa Sit Synapse Frangere Evanescere Hoc Mundo", 
+    "The hardest choices require the Strongest Wills THANOS", 
       
     
 ]
