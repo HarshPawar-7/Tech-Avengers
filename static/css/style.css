@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 body {
-    background: linear-gradient(270deg, rgba(86, 11, 36, 0.95), 30%, rgba(41, 14, 78, 0.95)), url(../images/lemap.png);
+    background: linear-gradient(270deg, rgba(86, 11, 36, 0.95), 30%, rgba(41, 14, 78, 0.95)), url(../images/thanos-bg.png);
     background-size: cover;
     color: #dddddddd;
     margin: 0;
@@ -19,7 +21,9 @@ a:hover {
     color: goldenrod;
 }
 
-nav {
+nav { 
+    font-family: 'Bangers', cursive;
+    font-size: 3rem;
     height: 10vh;
     background-color: #ffffff11;
     backdrop-filter: blur(4px);
@@ -86,12 +90,18 @@ code {
 }
 
 .container {
+    font-family: 'Roboto', sans-serif;
     padding: 0.5rem;
-    margin: 1rem;
+    margin: auto;
     background: #ffffff11;
     backdrop-filter: blur(4px);
     border-radius: 10px;
-    border: 1px solid goldenrod;
+    border: 3px solid goldenrod;
+    width: 70vw;
+}
+
+.container p {
+  line-height: 2;
 }
 
 .resultdiv {
@@ -197,3 +207,10 @@ code {
     display: inline-block; /* Ensures the box is inline */
   }
   
+
+.stones img{
+  margin: 20px;
+  height: 230px;
+  width: 100%;
+  gap: 0;
+}
