@@ -1,10 +1,16 @@
 {% include 'top.html' %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Question {{ episode }}</title>
     <link rel="stylesheet" href="static/css/style.css">
+    <style>
+        body {
+            background-color: {{ bg_color }};
+        }
+    </style>
     <script>
         let timer;
         let startTime;
@@ -45,23 +51,33 @@
         }
 
         // Call this function when the user submits an answer
-        document.getElementById('answer_form').onsubmit = function() {
+        document.getElementById('answer_form').onsubmit = function () {
             recordTimeSpent({ episode }); // Record time spent for the current question
         };
     </script>
 
 </head>
+
 <body>
     <h1>Question {{ episode }}</h1>
-    <div id="timer" class="text-center"></div>  <!-- Timer Display -->
+    <!-- <div id="timer" class="text-center"></div>  Timer Display -->
 
-    <form id="answer_form" action="/chapter/{{form_link}}/submit" method="post" class="text-center flex flex-col mx-auto my-0 w-[50%]">
-        <img src="{{image}}" width="256" height="256" class="mx-auto my-0">
-        <div>{{question | safe }}</div>
-        <a href="/input/{{ episode }}.txt" target="_blank" class="inputdownload">Download Input File</a>
-        <input type="text" class="border-2 rounded-md" id="answer" name="answer" placeholder="Enter your answer" required><br>
-        <input type="hidden" name="question_id" value="{{ question_id }}">
-        <input type="submit" value="Submit" class="submit-btn">
+    <form id="answer_form" action="/chapter/{{form_link}}/submit" method="post"
+        class="text-center flex flex-row mx-auto my-0 w-[50%]">
+        <div class="imagess">
+            <img src="{{image}}" width="256" height="256" class="mx-auto my-50">
+            <a href="/input/{{ episode }}.txt" target="_blank" class="inputdownload">View Input File</a>
+        </div>
+        <div class="questionandsubmit">
+            <div>{{question | safe }}</div>
+            <div class="submitbutton">
+                <input type="text" class="border-2 rounded-md" id="answer" name="answer" placeholder="Enter your answer"
+                    required><br>
+                <input type="hidden" name="question_id" value="{{ question_id }}">
+                <input type="submit" value="Submit" class="submit-btn">
+            </div>
+        </div>
     </form>
 </body>
+
 </html>

@@ -1,5 +1,16 @@
 {% include 'top.html' %}
-<div class="container">
+{% if request.path == '/' %}
+<style>
+  body {
+      background: linear-gradient(270deg, rgba(86, 11, 36, 0.95), 30%, rgba(41, 14, 78, 0.95)), 
+                  url("{{ url_for('static', filename='images/thanos-bg.png') }}");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+  }
+</style>
+{% endif %}
+<div class="container" >
 <p>  
     The universe quivers as you, <b>Thanos</b>, stand on the precipice of ultimate power. The <b>Infinity Stones—keys</b> to unimaginable control over existence—lie scattered across the cosmos. Yet, they are not so easily claimed.
 

@@ -24,15 +24,17 @@ answers = [
 ]
 
 quote_img = [
-    ('\"A is A, but sometimes, A is G.\"', '1.png'),
-    ('\"Late late says the White Rabbit.\"', '2.png'),
-    ('Somewhere, Under a Starry Sky.', '3.png'),
-    ('Old Home', 'super-wizard.png'),
+    ('\"A is A, but sometimes, A is G.\"', 'time.png'),
+    ('\"Late late says the White Rabbit.\"', 'power.png'),
+    ('Somewhere, Under a Starry Sky.', 'reality.png'),
+    ('Old Home', 'soul.png'),
     ('The Leaning Tower of Babel', '5.png'),
     ('6.txt', '6.png'),
     ('...', '7.png'),
     ('Decretum', '8.png')
 ]
+
+
 
 @app.route("/")
 def index():
@@ -45,7 +47,6 @@ def index():
 
 @app.route("/chapter/<int:q_no>/")
 def q(q_no):
-    # Check if the user is attempting to access the current or the next question only
     if 'current_question' not in session or q_no != session['current_question']:
         return redirect(f"/chapter/{session['current_question']}/", code=302)
 
@@ -57,14 +58,40 @@ def q(q_no):
     markdown_file_path = os.path.join(questions_dir, f'{q_no}.md')
     quote_ani_image = quote_img[array_index]
     question_content = "Question not found."
-    
+
     if os.path.exists(markdown_file_path):
         with open(markdown_file_path, 'r', encoding='utf-8') as file:
             question_content = markdown.markdown(file.read())
-    
+
     x = '/static/images/'
     y = '/input/'
-    return render_template('q.html', episode=q_no, question=question_content, form_link=q_no, input=y + quote_ani_image[0], image=x + quote_ani_image[1])
+
+    # Define stone colors
+    stone_colors = {
+        1: "#002900",  # Time Stone (Green)
+        2: "#3b0000",  # Power Stone (Dark Red)
+        3: "#410041",  # Reality Stone (Purple)
+        4: "#815300",  # Soul Stone (Orange)
+        5: "#000035",  # Space Stone (Blue)
+        6: "#5f5f00",  # Mind Stone (Yellow)
+        7: "#FFFFFF",  # Extra Question (White)
+        8: "#808080"   # Final Question (Gray)
+    }
+
+    bg_color = stone_colors.get(q_no, "linear-gradient(270deg, rgba(86, 11, 36, 0.95), 30%, rgba(41, 14, 78, 0.95))")  # Default to black if not found
+
+    print(f"Debug: Question {q_no}, Background Color: {bg_color}")  # Debugging line
+
+    return render_template(
+        'q.html',
+        episode=q_no,
+        question=question_content,
+        form_link=q_no,
+        input=y + quote_ani_image[0],
+        image=x + quote_ani_image[1],
+        bg_color=bg_color  # Pass bg_color to the template
+    )
+
 
 @app.route('/input/<filename>')
 def input_file(filename):
@@ -102,7 +129,7 @@ def check_ans(q_no):
         else:
             session['current_question'] = q_no + 1  # Move to the next question
             session['start_time'] = time.time()  # Reset the timer for the next question
-            return render_template('result.html', ans_feedback='Congratulations, you have secured the artifact :)', q_no=q_no, question_pointer=int(q_no) + 1, link_msg='Continue your story', result='correct')
+            return render_template('result.html', ans_feedback='Congratulations, you have secured the Stone :)', q_no=q_no, question_pointer=int(q_no) + 1, link_msg='Continue your Search', result='correct')
     else:
         return render_template('result.html', ans_feedback='Oops! That is not the correct answer :(', q_no=q_no, question_pointer=int(q_no), link_msg='Try again', result='incorrect')
 

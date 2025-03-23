@@ -1,4 +1,13 @@
 {% include 'top.html' %}
+<style>
+    body {
+        background: linear-gradient(270deg, rgba(86, 11, 36, 0.95), 30%, rgba(41, 14, 78, 0.95)), 
+                    url("{{ url_for('static', filename='images/thanos-bg.png') }}");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+  </style>
 <div class="{{ result }} resultdiv">
     <h1>Q{{q_no}}</h1>
 <h2>{{ans_feedback}}</h2>

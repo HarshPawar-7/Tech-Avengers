@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 body {
-    background: linear-gradient(270deg, rgba(86, 11, 36, 0.95), 30%, rgba(41, 14, 78, 0.95)), url(../images/thanos-bg.png);
+    /* background: linear-gradient(270deg, rgba(86, 11, 36, 0.95), 30%, rgba(41, 14, 78, 0.95)), url(../images/thanos-bg.png); */
     background-size: cover;
     color: #dddddddd;
     margin: 0;
     padding: 0;
     font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
 
 a {
     display: inline-block;
@@ -22,13 +23,20 @@ a:hover {
 }
 
 nav { 
-    font-family: 'Bangers', cursive;
     font-size: 3rem;
     height: 10vh;
     background-color: #ffffff11;
     backdrop-filter: blur(4px);
     margin-bottom: 2rem;
+    justify-content: space-between;
+    padding: 0px 30px ;
 }
+
+nav a {
+  font-family: 'Bangers', cursive;
+  /* padding-right: calc(100vw - 80%); */
+}
+
 
 form {
     margin-bottom: 1rem !important;
@@ -38,9 +46,16 @@ form {
     backdrop-filter: blur(4px);
 }
 
+form p {
+  text-align: start;
+  line-height: 1.5rem;
+}
+
 .inputdownload {
     text-decoration: none;
-    margin: 1rem;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
     padding: 0.5rem 0.2rem;
     border-radius: 5px;
     background: #ffffff11;
@@ -54,6 +69,7 @@ form {
 
 input[type=text] {
     height: 32px;
+    width: 65%;
 }
 
 input[type=submit] {
@@ -98,6 +114,7 @@ code {
     border-radius: 10px;
     border: 3px solid goldenrod;
     width: 70vw;
+    
 }
 
 .container p {
@@ -145,6 +162,10 @@ code {
   .my-0{
     margin-top: 0px;
     margin-bottom: 0px;
+  }
+
+  .my-50{
+    margin-top: 50px;
   }
   
   .flex{
@@ -213,4 +234,21 @@ code {
   height: 230px;
   width: 100%;
   gap: 0;
+}
+
+.justify-end {
+  justify-content: end;
+}
+
+.questionandsubmit {
+  margin: 15px;
+  border: 1px solid goldenrod;
+  border-radius: 10px;
+}
+
+.submitbutton {
+  display: flex;
+  margin: 10px;
+  margin-left: 15px;
+  justify-content: space-around;
 }
