@@ -11,27 +11,27 @@ app.secret_key = 'Lub_U'  # Replace with a secure random key
 
 # Define answers and quotes
 answers = [
-    "THOUSANDSOFYEARSAGOTHEARTIFACTSWEREDISPERSEDACROSSTHECONTINENTBYBEINGSFROMOTHERWORLDSGATHERALLSEVENARTIFACTSANDYOURWISHSHALLCOMETRUE", 
-    "88.2",
-    "9997", 
-    "6734", 
-    "23312",
-    "-210",
-    "383", 
+    "STONES", 
+    "Nidavellir",
+    "4388722113523324618740564061945396299807387494243892209782120116862698769651520789601144473769074847359830104016205570082929893236827311214484101487547873069356997497404918033913164338595753059661933563510272153982126703907739486437102988024008330659142937251391425120000", 
+    "(1010, 9980, 10079800, 9.88, 5744.5)", 
+    "8304",
+    "9981459.38",
+    "50", 
     "The hardest choices require the Strongest Wills THANOS", 
       
     
 ]
 
 quote_img = [
-    ('\"A is A, but sometimes, A is G.\"', 'time.png'),
-    ('\"Late late says the White Rabbit.\"', 'power.png'),
+    ('\"A is A, but sometimes, A is G.\"', '1.webp'),
+    ('\"Late late says the White Rabbit.\"', '2.jpeg'),
     ('Somewhere, Under a Starry Sky.', 'reality.png'),
     ('Old Home', 'soul.png'),
-    ('The Leaning Tower of Babel', '5.png'),
-    ('6.txt', '6.png'),
-    ('...', '7.png'),
-    ('Decretum', '8.png')
+    ('The Leaning Tower of Babel', '5.jpg'),
+    ('6.txt', '6.jpg'),
+    ('...', '7.jpg'),
+    ('Decretum', '8.jpg')
 ]
 
 
@@ -68,14 +68,16 @@ def q(q_no):
 
     # Define stone colors
     stone_colors = {
-        1: "#002900",  # Time Stone (Green)
-        2: "#3b0000",  # Power Stone (Dark Red)
-        3: "#410041",  # Reality Stone (Purple)
-        4: "#815300",  # Soul Stone (Orange)
-        5: "#000035",  # Space Stone (Blue)
-        6: "#5f5f00",  # Mind Stone (Yellow)
-        7: "#FFFFFF",  # Extra Question (White)
-        8: "#808080"   # Final Question (Gray)
+        1: "#88141d",  
+        2: "#263a4f",  
+        3: "#002900",  # Time Stone (Green)
+        4: "#410041",  # Power Stone (Purple)
+        5: "#3b0000",  # Reality Stone (Red)
+        6: "#815300",  # Soul Stone (Orange)
+        7: "#000035",  # Space Stone (Blue)
+        8: "#5f5f00",  # Mind Stone (Yellow)
+        # 7: "#FFFFFF",  # Extra Question (White)
+        9: "#808080"   # Final Question (Gray)
     }
 
     bg_color = stone_colors.get(q_no, "linear-gradient(270deg, rgba(86, 11, 36, 0.95), 30%, rgba(41, 14, 78, 0.95))")  # Default to black if not found
