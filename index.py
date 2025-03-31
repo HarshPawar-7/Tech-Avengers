@@ -12,20 +12,19 @@ app.secret_key = 'Lub_U'  # Replace with a secure random key
 # Define answers and quotes
 answers = [
     "STONES", 
-    "Nidavellir",
-    "4388722113523324618740564061945396299807387494243892209782120116862698769651520789601144473769074847359830104016205570082929893236827311214484101487547873069356997497404918033913164338595753059661933563510272153982126703907739486437102988024008330659142937251391425120000", 
-    "(1010, 9980, 10079800, 9.88, 5744.5)", 
+    "Nidavellir", 
+    "(1010, 9980, 10079800, 9.88, 5744.5)",
+    "50",
     "8304",
     "9981459.38",
-    "50", 
+    "4388722113523324618740564061945396299807387494243892209782120116862698769651520789601144473769074847359830104016205570082929893236827311214484101487547873069356997497404918033913164338595753059661933563510272153982126703907739486437102988024008330659142937251391425120000", 
     "The hardest choices require the Strongest Wills THANOS", 
-      
-    
+        
 ]
 
 quote_img = [
-    ('\"A is A, but sometimes, A is G.\"', '1.webp'),
-    ('\"Late late says the White Rabbit.\"', '2.jpeg'),
+    ('\"A is A, but sometimes, A is G.\"', 'Round1.jpg'),
+    ('\"Late late says the White Rabbit.\"', 'Round2.png'),
     ('Somewhere, Under a Starry Sky.', 'reality.png'),
     ('Old Home', 'soul.png'),
     ('The Leaning Tower of Babel', '5.jpg'),
@@ -70,14 +69,12 @@ def q(q_no):
     stone_colors = {
         1: "#88141d",  
         2: "#263a4f",  
-        3: "#002900",  # Time Stone (Green)
-        4: "#410041",  # Power Stone (Purple)
+        3: "#000035",  # Power Stone (Purple) 
+        4: "#410041",  # Time Stone (Blue) 
         5: "#3b0000",  # Reality Stone (Red)
         6: "#815300",  # Soul Stone (Orange)
-        7: "#000035",  # Space Stone (Blue)
+        7: "#002900",  # Time Stone (Green)
         8: "#5f5f00",  # Mind Stone (Yellow)
-        # 7: "#FFFFFF",  # Extra Question (White)
-        9: "#808080"   # Final Question (Gray)
     }
 
     bg_color = stone_colors.get(q_no, "linear-gradient(270deg, rgba(86, 11, 36, 0.95), 30%, rgba(41, 14, 78, 0.95))")  # Default to black if not found
