@@ -13,7 +13,7 @@ app.secret_key = 'Lub_U'  # Replace with a secure random key
 answers = [
     "STONES", 
     "Nidavellir", 
-    "(1010, 9980, 10079800, 9.88, 5744.5)",
+    "(1010, 9980, 10079800, 0.10, 5373)",
     "50",
     "8304",
     "9981459.38",
